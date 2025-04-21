@@ -1,7 +1,16 @@
-from copy_content import copy_content_to_public
+from copy_content import copy_content
+from generate_page import generate_page
+import os
+import shutil
+
+dir_path_static = "./static"
+dir_path_public = "./public"
 
 def main():
-    copy_content_to_public("static", "public")
+    if os.path.exists(dir_path_public):
+        shutil.rmtree(dir_path_public)
+    copy_content(dir_path_static, dir_path_public)
+    generate_page("content/index.md", "template.html", "public/index.html")
 
 if __name__ == "__main__":
     main()

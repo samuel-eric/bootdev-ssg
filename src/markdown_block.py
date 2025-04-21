@@ -124,3 +124,14 @@ def block_to_list_node(block, type):
                 list_item_node = ParentNode("li", children)
                 list_item_nodes.append(list_item_node)
             return ParentNode("ul", list_item_nodes)
+
+def extract_title(markdown):
+    block = markdown_to_blocks(markdown)
+    title = ""
+    for line in block:
+        if line.startswith("# "):
+            title = line
+            break
+    if title == "":
+        raise Exception("title not found")
+    return title.strip("# ")
