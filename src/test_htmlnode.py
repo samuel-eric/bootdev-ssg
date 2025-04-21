@@ -82,3 +82,6 @@ class TestHTMLNode(unittest.TestCase):
         html_node = text_node_to_html_node(node)
         self.assertEqual(html_node.tag, "i")
         self.assertEqual(html_node.value, "This is a italic text node")
+
+if __name__ == "__main__":
+    unittest.main()
