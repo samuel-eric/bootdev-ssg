@@ -1,8 +1,7 @@
-from textnode import *
+from copy_content import copy_content_to_public
 
 def main():
-    link = TextNode("This is some anchor text", TextType.LINK, "https://www.boot.dev")
-    print(link)
+    copy_content_to_public("static", "public")
 
 if __name__ == "__main__":
     main()
